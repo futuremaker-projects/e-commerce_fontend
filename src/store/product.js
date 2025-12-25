@@ -9,6 +9,8 @@ export const useProductStore = defineStore('product', () => {
   const loading = ref(false)
   const error = ref(null)
   const searchQuery = ref('')
+  const selectedCategoryId = ref(null)
+
   const useDummyData = ref(true) // 더미 데이터 사용 여부
   const currentPage = ref(0)
   const pageSize = ref(15) // 페이지당 상품 수
@@ -213,7 +215,7 @@ export const useProductStore = defineStore('product', () => {
   }
   
   // 필터/검색 초기화
-  function reset() {
+  function resetSearch() {
     currentPage.value = 0
     hasMore.value = true
     searchQuery.value = ''
@@ -228,8 +230,6 @@ export const useProductStore = defineStore('product', () => {
       products.value = []
     }
   }
-
-  const selectedCategoryId = ref(null)
 
   return {
     products,
@@ -248,7 +248,7 @@ export const useProductStore = defineStore('product', () => {
     loadDummyProducts,
     filterByCategory,
     loadMore,
-    reset
+    resetSearch
   }
 })
 
