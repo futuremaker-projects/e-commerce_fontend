@@ -1,14 +1,14 @@
-import apiClient from './axios'
+import { authApiClient } from './axios'
 
 export const login = (credentials) => {
-  return apiClient.post('/auth/login', credentials)
+  return authApiClient.post('/auth/login', credentials)
 }
 
 export const logout = () => {
-  return apiClient.post('/auth/logout')
+  return authApiClient.post('/auth/logout')
 }
 
 export const getCurrentUser = () => {
-  return apiClient.get('/auth/me')
+  return authApiClient.get('/auth/me')
 }
 

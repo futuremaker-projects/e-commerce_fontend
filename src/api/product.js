@@ -1,15 +1,15 @@
-import apiClient from './axios'
+import { productApiClient } from './axios'
 
 export const getProducts = (params = {}) => {
-  return apiClient.get('/products', { params })
+  return productApiClient.get('/products', { params })
 }
 
 export const getProduct = (id) => {
-  return apiClient.get(`/products/${id}`)
+  return productApiClient.get(`/products/${id}`)
 }
 
 export const searchProducts = (query, params = {}) => {
-  return apiClient.get('/products/search', {
+  return productApiClient.get('/products/search', {
     params: {
       q: query,
       ...params
