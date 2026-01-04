@@ -8,12 +8,19 @@ export const getProduct = (id) => {
   return productApiClient.get(`/products/${id}`)
 }
 
-export const searchProducts = (query, params = {}) => {
-  return productApiClient.get('/products/search', {
+export const searchProducts = (query, pageNum = 0) => {
+  return productApiClient.get('/products', {
     params: {
-      q: query,
-      ...params
+      productName: query,
+      pageNum: pageNum
     }
   })
 }
 
+export const getProductsByCategory = (categoryId, pageNum = 0) => {
+  return productApiClient.get(`/products/categories/${categoryId}`, {
+    params: {
+      pageNum: pageNum
+    }
+  })
+}
