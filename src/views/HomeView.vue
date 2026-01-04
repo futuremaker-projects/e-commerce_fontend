@@ -243,9 +243,9 @@ const handleSearch = async () => {
   productStore.selectedCategoryId = null
   productStore.resetSearch()
   if (searchQuery.value.trim()) {
-    await productStore.search(searchQuery.value.trim(), { page: 0, size: 20 })
+    await productStore.search(searchQuery.value.trim(), { pageNum: 0 })
   } else {
-    await productStore.fetchProducts({ page: 0, size: 20 })
+    await productStore.fetchProducts({ pageNum: 0 })
   }
 }
 
@@ -254,7 +254,7 @@ const selectMainCategory = (categoryId) => {
   selectedCategoryId.value = categoryId
   productStore.selectedCategoryId = categoryId
   productStore.resetSearch()
-  productStore.filterByCategory(categoryId, 0, 15)
+  productStore.filterByCategory(categoryId, 0)
   hoveredCategoryId.value = null // 하위 카테고리 드롭다운 닫기
 }
 
@@ -267,7 +267,7 @@ const selectCategory = (categoryId) => {
   selectedCategoryId.value = categoryId
   productStore.selectedCategoryId = categoryId
   productStore.resetSearch()
-  productStore.filterByCategory(categoryId, 0, 15)
+  productStore.filterByCategory(categoryId, 0)
   hoveredCategoryId.value = null // 하위 카테고리 드롭다운 닫기
 }
 
@@ -289,7 +289,7 @@ const clearCategory = () => {
   selectedCategoryId.value = null
   productStore.selectedCategoryId = null
   productStore.resetSearch()
-  productStore.fetchProducts({ page: 0, size: 15 })
+  productStore.fetchProducts({ pageNum: 0 })
 }
 
 const goHome = () => {
@@ -339,9 +339,9 @@ const handleImageError = (event) => {
 }
 
 onMounted(async () => {
-  // 초기 상품 목록 로드 (더미 데이터) - 첫 15개
+  // 초기 상품 목록 로드
   productStore.resetSearch()
-  await productStore.fetchProducts({ page: 0, size: 15 })
+  await productStore.fetchProducts({ pageNum: 0 })
   
   // 스크롤 이벤트 리스너 추가
   window.addEventListener('scroll', handleScroll)
