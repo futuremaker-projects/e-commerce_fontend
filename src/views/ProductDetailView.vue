@@ -187,5 +187,5 @@ function handleImageError(event) {
 }
 </script>
 
-<style scoped src="./ProductDetailView.css"></style>
+<style scoped src="./css/ProductDetailView.css"></style>
 

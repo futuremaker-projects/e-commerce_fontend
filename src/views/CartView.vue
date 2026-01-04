@@ -199,5 +199,5 @@ function handleImageError(event) {
 }
 </script>
 
-<style scoped src="./CartView.css"></style>
+<style scoped src="./css/CartView.css"></style>
 

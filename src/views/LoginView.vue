@@ -67,5 +67,5 @@ const handleLogin = async () => {
 }
 </script>
 
-<style scoped src="./LoginView.css"></style>
+<style scoped src="./css/LoginView.css"></style>
 

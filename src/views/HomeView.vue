@@ -243,9 +243,9 @@ const handleSearch = async () => {
   productStore.selectedCategoryId = null
   productStore.resetSearch()
   if (searchQuery.value.trim()) {
-    await productStore.search(searchQuery.value.trim(), { page: 0, size: 15 })
+    await productStore.search(searchQuery.value.trim(), { page: 0, size: 20 })
   } else {
-    await productStore.fetchProducts({ page: 0, size: 15 })
+    await productStore.fetchProducts({ page: 0, size: 20 })
   }
 }
 
@@ -353,5 +353,5 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped src="./HomeView.css"></style>
+<style scoped src="./css/HomeView.css"></style>
 
